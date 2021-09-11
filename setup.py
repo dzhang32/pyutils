@@ -5,9 +5,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pyutils",
-    version="0.0.1",
+    version="0.0.2",
     author="David Zhang",
-    author_email="author@example.com",
+    author_email="dyzhang32@gmail.com",
     description="A home for my commonly-used python utility functions",
     long_description=long_description,
     long_description_content_type="text/markdown",
