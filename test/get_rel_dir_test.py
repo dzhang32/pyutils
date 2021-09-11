@@ -1,9 +1,9 @@
 import unittest
 from pyutils import get_rel_dir
 
-class TestStringMethods(unittest.TestCase):
+class TestRelDir(unittest.TestCase):
 
-    def test_rel_path(self):
+    def test_rel_dir(self):
         self.assertEqual(get_rel_dir("/somewhere/scripts/live/", "../../results/live/"),
                          "/somewhere/results/live/")
 
