@@ -1,4 +1,4 @@
-name: Check-package
+name: build-test-package
 
 on:
   push:
