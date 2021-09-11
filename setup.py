@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pyutils-dzhang32",
+    name="pyutils",
     version="0.0.1",
     author="David Zhang",
     author_email="author@example.com",
