@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  # taken from https://github.com/pypa/pip/blob/main/.github/workflows/ci.yml
+  # modified from https://github.com/pypa/pip/blob/main/.github/workflows/ci.yml
   test-package:
 
     name: tests / ${{ matrix.python }} / ${{ matrix.os }}
@@ -40,5 +40,8 @@ jobs:
       - name: Install package and dependencies
         run: |
           pwd
-          ls
           python3 setup.py install
+
+      - name: Run unit testing
+        run: |
+          python -m unittest discover -p "*_test.py"
