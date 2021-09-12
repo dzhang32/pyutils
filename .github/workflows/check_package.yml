@@ -65,7 +65,7 @@ jobs:
           python3 -m pip install sphinx
           python3 -m pip install git+https://github.com/dzhang32/pyutils.git
 
-      - name: Deploy sphinx
+      - name: Create sphinx documentation
         run: |
           cd docs
           sphinx-apidoc -f -o source/ ../src/pyutils/
@@ -79,5 +79,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build/html # The folder the action should deploy.
+          FOLDER: docs/build/html # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
