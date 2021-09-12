@@ -63,7 +63,7 @@ jobs:
           python3 pip install sphinx
           python3 pip install git+https://github.com/dzhang32/pyutils.git
 
-      - name: Deploy shinx
+      - name: Deploy sphinx
         run: |
           cd docs
           make html
