@@ -70,9 +70,6 @@ jobs:
           cd docs
           sphinx-apidoc -f -o source/ ../src/pyutils/
           make html
-          ls
-          ls build
-          pwd
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
