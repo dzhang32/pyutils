@@ -51,8 +51,20 @@ jobs:
         run: |
           python -m unittest discover -p "*_test.py"
 
+  deploy-package:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+
+      - name: Install dependencies
+        run: |
+          python3 pip install sphinx
+          python3 pip install git+https://github.com/dzhang32/pyutils.git
+
       - name: Deploy shinx
         run: |
           cd docs
           make html
-
+          ls
