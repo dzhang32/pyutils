@@ -37,6 +37,11 @@ jobs:
         if: matrix.os == 'MacOS'
         run: brew install bzr
 
+      - name: Check pip installation
+        run: |
+          python3 -m pip install git+https://github.com/dzhang32/pyutils.git
+          python3 -m pip uninstall pyutils
+
       - name: Install package and dependencies
         run: |
           pwd
