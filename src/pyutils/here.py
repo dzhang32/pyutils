@@ -2,16 +2,16 @@ import os
 
 def here(script_path: str = None, *args: str) -> str:
     """Obtain the relative path to directory of the executed script.
-    Useful for making projects self-contained.
 
-    @type script_path: str
-    @param script_path: path to the current executed script. Should be
-    set as __file__.
-    @type *args: str
-    @param *args: the paths that denote the relative path to the file
-    or directory of interest.
-    @rtype: str
-    @returns: Absolute path to file/directory of interest.
+    Useful for making projects self-contained, for example by making
+    results path relative to the script where they are generated.
+
+    Args:
+        script_path (str): path to the current executed script.
+        args (str): relative paths to the file or directory of interest.
+
+    Returns:
+        str: Absolute path to file/directory of interest.
     """
 
     if script_path is None:
