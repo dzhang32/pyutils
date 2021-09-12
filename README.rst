@@ -1,8 +1,8 @@
 pyutils
 #######
 
-.. image:: https://github.com/dzhang32/pyutils/workflows/build-test-package/badge.svg
-    :target: https://github.com/dzhang32/pyutils/actions?query=workflow%3Abuild-test-package
+.. image:: https://github.com/dzhang32/pyutils/workflows/test-deploy-package/badge.svg
+    :target: https://github.com/dzhang32/pyutils/actions?query=workflow%3Atest-deploy-package
 
 |
 
