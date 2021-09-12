@@ -1,8 +1,17 @@
 import time
 import functools
 
-def timer(num_times):
+def timer(num_times: int):
+    """Decorator function that times the inputted function.
+    Runs the inputted function num_times, then prints and
+    returns average time taken
 
+    @type num_times: int
+    @param num_times: Number of times to run the function.
+    @rtype: float
+    @returns: Average time taken to run function across
+    num_times iterations.
+    """
     # required for arg num_times in decorator
     def decorator_timer(func):
         @functools.wraps(func)
