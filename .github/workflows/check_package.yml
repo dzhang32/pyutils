@@ -52,7 +52,7 @@ jobs:
           python -m unittest discover -p "*_test.py"
 
   deploy-package:
-    
+
     needs: test-package
     runs-on: ubuntu-latest
     steps:
@@ -67,5 +67,6 @@ jobs:
       - name: Deploy sphinx
         run: |
           cd docs
+          sphinx-apidoc -f -o source/ ../src/pyutils/
           make html
           ls
