@@ -73,7 +73,8 @@ jobs:
           make html
           # otherwise wise doesn't render properly
           # https://stackoverflow.com/questions/62626125/github-pages-with-sphinx-generated-documentation-not-displaying-html-correctly
-          touch docs/build/.nojekyll
+          cd docs/build/html
+          touch .nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
