@@ -50,3 +50,9 @@ jobs:
       - name: Run unit testing
         run: |
           python -m unittest discover -p "*_test.py"
+
+      - name: Deploy shinx
+        run: |
+          cd docs
+          make html
+
