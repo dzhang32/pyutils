@@ -1,36 +1,33 @@
 import os
 
-def here(*args: str) -> str:
-    """Obtain the relative path to directory of the executed script
-    or the current working directory (in JNBs). Useful for making
-    projects self-contained.
+def here(script_path: str = None, *args: str) -> str:
+    """Obtain the relative path to directory of the executed script.
+    Useful for making projects self-contained.
 
-    For R users, this will be similar to the here::here() function,
-    however the base path used will be the directory of the executed
-    script or current working directory (in JNBs), rather than the
-    project working directory set by .Rproj.
-
-    @type args: str
-    @param args: the paths that denote the relative path to the file
+    @type script_path: str
+    @param script_path: path to the current executed script. Should be
+    set as __file__.
+    @type *args: str
+    @param *args: the paths that denote the relative path to the file
     or directory of interest.
     @rtype: str
     @returns: Absolute path to file/directory of interest.
     """
 
-    # __file__ runs into NameError in JNBs
-    try:
-        path = __file__
-    except NameError:
-        path = os.path.abspath("")
+    if script_path is None:
+        raise ValueError("script_path should be set to '__file__'. E.g. ",
+                         "here(__file__, 'path', 'to', 'somewhere')")
+
+    script_dir = os.path.dirname(script_path)
 
     # if args entered, check whether last one ends with "/"
     if len(args) == 0:
-        return path
+        return script_dir
     else:
         last_arg = args[len(args) - 1]
         ends_with_slash = last_arg[len(last_arg) - 1] == "/"
 
-    rel_path = os.path.join(path, *args)
+    rel_path = os.path.join(script_dir, *args)
     abs_path = os.path.abspath(rel_path)
 
     # os.path.abspath() drops last "/"
