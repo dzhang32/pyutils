@@ -51,13 +51,16 @@ jobs:
         run: |
           python3 -m unittest discover -p "*_test.py"
 
-      - name: Install coverage report
+      - name: Upload Coverage to Codecov
+        if: matrix.os == 'Ubuntu' && matrix.python == '3.9'
         run: |
           python3 -m pip install coverage
+          coverage run -m unittest
 
       - name: Upload Coverage to Codecov
+        if: matrix.os == 'Ubuntu' && matrix.python == '3.9'
         uses: codecov/codecov-action@v1
-           
+
   deploy-package:
     # deploy-package only runs if tests pass
     needs: test-package
