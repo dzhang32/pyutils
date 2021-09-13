@@ -55,10 +55,6 @@ jobs:
       - run: |
           python3 -m pip install coverage
 
-      - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-
   deploy-package:
     # deploy-package only runs if tests pass
     needs: test-package
