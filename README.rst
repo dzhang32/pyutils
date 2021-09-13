@@ -29,4 +29,4 @@ Or, by cloning this repo and running `setup.py`
 Development tools
 -----------------
 
-The documentation website is automatically updated thanks to `Sphinx <https://www.sphinx-doc.org/>`_ and this `GitHub Action for deploying to gh-pages <https://github.com/JamesIves/github-pages-deploy-action>`_. 
+The documentation website is automatically updated thanks to `Sphinx <https://www.sphinx-doc.org/>`_ and this `GitHub Action <https://github.com/JamesIves/github-pages-deploy-action>`_. 
