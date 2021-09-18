@@ -1,7 +1,7 @@
 import time
 import functools
 
-def timer(num_times: int):
+def timer(num_times: int) -> float:
     """Decorator function that times the inputted function.
 
     Runs the inputted function num_times, then prints and
