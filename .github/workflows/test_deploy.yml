@@ -56,7 +56,7 @@ jobs:
         if: matrix.os == 'Ubuntu' && matrix.python == '3.9'
         run: |
           python3 -m pip install coverage
-          coverage run --source=./src/pyutils -m pytest && coverage report -m
+          coverage run --source=./src/pyutils -m pytest && coverage report -m && coverage xml
 
       - name: Upload Coverage to Codecov
         if: matrix.os == 'Ubuntu' && matrix.python == '3.9'
