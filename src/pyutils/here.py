@@ -1,22 +1,19 @@
 import os
 
-def here(script_path: str = None, *args: str) -> str:
+def here(script_path: str, *args: str) -> str:
     """Obtain the relative path to directory of the executed script.
 
     Useful for making projects self-contained, for example by making
     results path relative to the script where they are generated.
 
     Args:
-        script_path (str): path to the current executed script.
+        script_path (str): path to the current executed script. Should
+            be set to '__file__'.
         args (str): relative paths to the file or directory of interest.
 
     Returns:
         str: Absolute path to file/directory of interest.
     """
-
-    if script_path is None:
-        raise ValueError("script_path should be set to '__file__'. E.g. ",
-                         "here(__file__, 'path', 'to', 'somewhere')")
 
     script_dir = os.path.dirname(script_path)
 
