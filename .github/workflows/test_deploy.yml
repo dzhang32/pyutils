@@ -49,7 +49,7 @@ jobs:
 
       - name: Run unit testing
         run: |
-          python3 -m unittest discover -p "*_test.py"
+          python3 -m pytest
 
       - name: Generate coverage report
         if: matrix.os == 'Ubuntu' && matrix.python == '3.9'
