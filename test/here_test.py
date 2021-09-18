@@ -1,40 +1,24 @@
-import unittest
+import pytest
 import os
 from pyutils import here
 
-class TestHere(unittest.TestCase):
+def test_here_default():
+    assert here(__file__) == os.path.dirname(__file__)
 
-    def test_here(self):
+def test_here_appends_paths():
+    assert here(__file__, "a", "path") == os.path.join(os.path.dirname(__file__), "a", "path")
 
-        self.assertEqual(here(__file__),
-                         os.path.dirname(__file__))
+def test_here_gets_abs_path():
+    assert here(__file__, "..") == os.path.abspath(os.path.dirname(__file__) + "/..")
 
-        self.assertEqual(here(__file__, "a", "path"),
-                         os.path.join(os.path.dirname(__file__), "a", "path"))
+def test_here_keeps_final_backslash():
+    assert here(__file__, "..", "dir/") == os.path.abspath(os.path.dirname(__file__) + "/../dir") + "/"
 
-        self.assertEqual(here(__file__, ".."),
-                         os.path.abspath(os.path.dirname(__file__) + "/.."))
+# catching user input errors
+def test_here_catches_type_error():
+    with pytest.raises(TypeError):
+        here(__file__, 1)
 
-        self.assertEqual(here(__file__, "..", "file.csv"),
-                         os.path.abspath(os.path.dirname(__file__) + "/../file.csv"))
-
-        self.assertEqual(here(__file__, "..", "dir/"),
-                         os.path.abspath(os.path.dirname(__file__) + "/../dir") + "/")
-
-    def test_here_errors(self):
-
-        # here() needs input of __file__ manually by
-        # the user, if __file__ is default, it will refer to
-        # the path to where pyutils.here is defined
-        with self.assertRaises(ValueError):
-            here()
-
-        with self.assertRaises(TypeError):
-            here(1)
-
-        with self.assertRaises(TypeError):
-            here(1, 1)
-
-if __name__ == '__main__':
-    unittest.main()
-
+def test_here_requires_script_path():
+    with pytest.raises(TypeError):
+        here()

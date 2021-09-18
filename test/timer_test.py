@@ -1,26 +1,22 @@
-import unittest
+import pytest
 from pyutils import timer
-
-# required to test print()
-# https://realpython.com/lessons/mocking-print-unit-tests/
-from unittest.mock import patch
 
 @timer(num_times = 5)
 def waste_time(n):
     for i in range(n):
         pass
 
-class TestHere(unittest.TestCase):
+def test_timer_returns_float():
+    assert isinstance(waste_time(100), float)
 
-    def test_timer(self):
+def test_timer_prints_correctly(capfd):
+    waste_time(1)
+    # capfd is a fixture provided by pytest, see:
+    # https://stackoverflow.com/questions/20507601/writing-a-pytest-function-for-checking-the-output-on-console-stdout
 
-        self.assertIsInstance(waste_time(100), float)
+    out, err = capfd.readouterr()
+    assert out == "Average run time of 'waste_time': 0.0000 s\n"
 
-    @patch('builtins.print')
-    def test_timer_print(self, mock_print):
-
-        waste_time(1)
-        mock_print.assert_called_with("Average run time of 'waste_time': 0.0000 s")
-
-if __name__ == '__main__':
-    unittest.main()
+def test_timer_catches_type_error():
+    with pytest.raises(TypeError):
+        waste_time("100")
