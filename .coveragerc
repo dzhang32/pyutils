@@ -1,0 +1,4 @@
+[run]
+omit =
+    # omit anything in the src/pyutils/test/ directory
+    *src/pyutils/test/*
