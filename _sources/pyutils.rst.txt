@@ -1,6 +1,14 @@
 pyutils package
 ===============
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyutils.test
+
 Submodules
 ----------
 

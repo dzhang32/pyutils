@@ -1,0 +1,29 @@
+pyutils.test package
+====================
+
+Submodules
+----------
+
+pyutils.test.test\_here module
+------------------------------
+
+.. automodule:: pyutils.test.test_here
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyutils.test.test\_timer module
+-------------------------------
+
+.. automodule:: pyutils.test.test_timer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pyutils.test
+   :members:
+   :undoc-members:
+   :show-inheritance:
