@@ -5,7 +5,7 @@ pyutils
     :target: https://github.com/dzhang32/pyutils/actions?query=workflow%3Atest-deploy-package
     
 .. image:: https://codecov.io/gh/dzhang32/pyutils/branch/main/graph/badge.svg
-    :target: https://codecov.io/gh/dzhang32/pytutils?branch=main
+    :target: https://app.codecov.io/gh/dzhang32/pyutils
 
 ``pyutils`` is a home for the various utility functions I have found myself using commonly enough to package up.
 
