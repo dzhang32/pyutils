@@ -55,8 +55,8 @@ jobs:
       - name: Generate coverage report
         if: matrix.os == 'Ubuntu' && matrix.python == '3.9'
         run: |
-          python3 -m pip install pytest-cov
-          pytest --cov=./ --cov-report=xml
+          python3 -m pip install coverage
+          coverage run --source=./src/pyutils -m pytest && coverage report -m
 
       - name: Upload Coverage to Codecov
         if: matrix.os == 'Ubuntu' && matrix.python == '3.9'
